@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def name_update
     @user = User.find_by(id: params[:user_id])
-    if @user.password == params[:password]
+    if @user && @user.authenticate(params[:password])
       @user.name = params[:name]
       if @user.save
         redirect_to("/users/#{@user.id}")
