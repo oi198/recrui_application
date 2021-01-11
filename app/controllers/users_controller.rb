@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find_by(id: params[:user_id])
+    @posts = Post.where(user_id: params[:user_id]).order(respond: "DESC")
   end
 
   def signup
@@ -90,16 +91,14 @@ class UsersController < ApplicationController
     redirect_to("/")
   end
 
-  def posts
-    @posts = Post.where(user_id: params[:user_id])
-  end
-
   def chats
     @chats = Chat.where(user_id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])
   end
 
   def companies
     @companies = Company.where(user_id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])
   end
 
   def ensure_correct_user

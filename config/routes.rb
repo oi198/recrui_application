@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get '/users/:user_id/edit' => 'users#edit'
   get '/signup' => 'users#signup'
   get '/login' => 'users#login_form'
-  get '/users/:user_id/posts' => 'users#posts'
   get '/users/:user_id/chats' => 'users#chats'
   get '/users/:user_id/companies' => 'users#companies'
   post '/login' => 'users#login'

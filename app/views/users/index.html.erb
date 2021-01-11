@@ -33,7 +33,7 @@
             <div class="profile-form-header-right-bottom">
                 <ul>
                     <li id="border-left">
-                        <%= link_to("投稿", "/users/#{@user.id}/posts", {:style=>"color: grey;"}) %>
+                        <%= link_to("投稿", "/users/#{@user.id}", {:style=>"color: grey;"}) %>
                     </li>
                     <li>
                         <%= link_to("コメント", "/users/#{@user.id}/chats", {:style=>"color: grey;"}) %>
@@ -46,6 +46,28 @@
 
         </div>
 
+    </div>
+
+    <div class="profile-form-main">
+        <% if @posts != [] %>
+            <% @posts.each do |post| %>
+                <div class="profile-form-main-block">
+                    <div class="profile-form-main-block-left">
+                        <%= link_to(post.title, "/posts/#{post.id}", {method: :post, :style=>"color: black;"}) %>
+                    </div>
+                    <div class="profile-form-main-block-center">
+                        回答数：<%= post.respond %>
+                    </div>
+                    <div class="profile-form-main-block-right">
+                        <%= post.created_at.strftime('%Y/%m/%d') %>
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="profile-form-main-none-block">
+                投稿はありません。
+            </div>
+        <% end %>
     </div>
 </div>
 
