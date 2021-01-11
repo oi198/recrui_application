@@ -23,6 +23,9 @@
                 <div class="profile-form-header-right-top-left">
                     <%= @user.name %>
                 </div>
+                <div class="profile-form-header-right-top-right">
+                    <%= link_to("編集", "/users/#{@user.id}/edit", {:style=>"color: grey;"}) %>
+                </div>
             </div>
 
             <div class="profile-form-header-right-center"></div>
