@@ -1,0 +1,185 @@
+<main>
+  <nav>
+
+    <div class="nav-header">
+      <ul>
+        <% if @current_user %>
+          <li>
+            <%= link_to("/posts/create", {method: :post}) do %>
+              <i class="far fa-plus-square" id="black"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <li>
+          <%= form_tag("/posts/search") do %>
+            <div class="menu-inputs">
+              <input type="text" name="title" placeholder="title"><br>
+              <input type="submit" value="検索">
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-main">
+
+      <% if @current_post %>
+        <div class="current-post-block">
+          <%= link_to("/posts/#{@current_post.id}", {method: :post}) do %>
+            <div class="post-block-header">
+              <div class="post-block-header-left">
+                <%= @current_post.title %>
+              </div>
+              <div class="post-block-header-right">
+                <%= link_to("/posts/#{@current_post.id}/edit") do %>
+                  <div class="post-block-header-right-top">編集</div>
+                <% end %>
+                <%= link_to("/posts/#{@current_post.id}/destroy", {method: :post}) do %>
+                  <div class="post-block-header-right-bottom">削除</div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="post-block-footer">
+            <div>
+              回答数：<%= @current_post.respond %>
+            </div>
+            <div>  
+              <%= @current_post.created_at.strftime('%Y/%m/%d') %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @posts %>
+        <% @posts.each do |post| %>
+          <div class="post-block">
+            <%= link_to("/posts/#{post.id}", {method: :post}) do %>
+              <div class="post-block-header">
+                <div class="post-block-header-left">
+                  <%= post.title %>
+                </div>
+                <div class="post-block-header-right">
+                </div>
+              </div>
+            <% end %>
+            <div class="post-block-footer">
+              <div>
+                回答数：<%= post.respond %>
+              </div>
+              <div>  
+                <%= post.created_at.strftime('%Y/%m/%d') %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+  </nav>
+
+  <div class="main-container">
+    <div class="main-container-header">
+      <% if @current_post %>
+        <%= @current_post.title %>
+      <% end %>
+    </div>
+    <div class="main-container-main">
+      <% if @chats %>
+        <% @chats.each do |chat| %>
+          <div class="chatlog">
+            <% if chat.user %>
+              <% if @current_user && chat.user_id == @current_user.id %>
+                <div class="my-chat">
+                  <div class="chat-container">
+                    <div class="chat-header">
+                      <%= chat.user.name %>
+                    </div>
+                    <div class="chat-form">
+                      <div class="chat-content">
+                        <%= chat.content %>
+                      </div>
+                    </div>
+                    <div class="chat-footer">
+                      <%= chat.created_at.strftime('%Y/%m/%d') %>
+                      <%= link_to("/chats/#{chat.id}/destroy", {method: :post}) do %>
+                        &nbsp;<i class="fas fa-trash-alt"></i>&nbsp;
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= link_to("/users/#{chat.user_id}") do %>
+                    <div class="chat-icon">
+                      <% if chat.user.image.attached? %>
+                        <%= image_tag(chat.user.image) %>
+                      <% else %>
+                        <img src="<%= asset_path("unknown.jpg") %>">
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="others-chat">
+                  <div class="chat-icon">
+                    <% if chat.user.image.attached? %>
+                      <%= image_tag(chat.user.image) %>
+                    <% else %>
+                      <img src="<%= asset_path("unknown.jpg") %>">
+                    <% end %>
+                  </div>
+                  <div class="chat-container">
+                    <div class="chat-header">
+                      <%= chat.user.name %>
+                    </div>
+                    <div class="chat-form">
+                      <div class="chat-content">
+                        <%= chat.content %>
+                      </div>
+                    </div>
+                    <div class="chat-footer">
+                      <%= chat.created_at.strftime('%Y/%m/%d') %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="others-chat">
+                <div class="chat-icon">
+                  <img src="<%= asset_path("unknown.jpg") %>">
+                </div>
+                <div class="chat-container">
+                  <div class="chat-header">
+                    unknown
+                  </div>
+                  <div class="chat-form">
+                    <div class="chat-content">
+                      <%= chat.content %>
+                    </div>
+                  </div>
+                  <div class="chat-footer">
+                    <%= chat.created_at.strftime('%Y/%m/%d') %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="main-container-footer">
+      <% if @current_user && @current_post %>
+        <%= form_tag("/chats/#{@current_post.id}/create") do %>
+          <div class="main-container-footer-content">
+            <textarea name="content" placeholder="コンテンツを入力"></textarea>
+            <label>
+              <input type="submit">
+              <div class="submit">送信</div>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</main>

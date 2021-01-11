@@ -1,0 +1,38 @@
+<div class="companies">
+
+    <div class="companies-header">
+        <div class="companies-header-right">
+            登録企業一覧
+        </div>
+        <%= link_to("/companies/create", {method: :post}) do %>
+            <div class="create-button">
+                new
+            </div>
+        <% end %>
+    </div>
+
+    <% if @companies != [] %>
+        <% @companies.each do |company| %>
+            <div class="company-block">
+                <%= link_to("/companies/#{company.id}") do %>
+                    <div class="company-block-left">
+                        <%= company.name %>
+                    </div>
+                <% end %>
+                <div class="company-block-right">
+                    <%= link_to("/companies/#{company.id}/edit") do %>
+                        <div class="company-block-right-top">編集</div>
+                    <% end %>
+                    <%= link_to("/companies/#{company.id}/destroy", {method: :post}) do %>
+                        <div class="company-block-right-bottom">削除</div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="company-block2">
+            登録された企業はありません。
+        </div>
+    <% end %>
+    
+</div>

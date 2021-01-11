@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecruitApplication</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/5e319088a7.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <li id="logo">
+          <%= link_to("SYUUKATU_APP", "/", {:style=>"color: black; font-family: 'Amatic SC', cursive;"}) %>
+        </li>
+      </ul>
+      <ul>
+        <% if @current_user %>
+          <li>
+            <%= link_to("/companies") do %>
+              <i class="far fa-building" id="black"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to("/events") do %>
+              <i class="far fa-calendar-alt" id="black"></i>
+            <% end %>
+          </li>
+          <li>
+            <label for="invisible2">
+              <div class="user-icon">
+                <i class="far fa-user" id="black"></i>
+              </div>
+            </label>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("/signup") do %>
+              <i class="fas fa-user-plus" id="black"></i>
+            <% end %>  
+          </li>
+          <li>
+            <%= link_to("/login") do %>
+              <i class="fas fa-sign-in-alt" id="black"></i>
+            <% end %>  
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <% if @current_user %>
+      <input type="checkbox" id="invisible2">
+      <div class="side-form">
+        <ul>
+          <li>
+            <%= link_to("プロフィール","/users/#{@current_user.id}", {:style=>"color: grey;"}) %>
+          </li>
+          <li id="border">
+            <%= link_to("ログアウト","/logout", {method: :post, :style=>"color: grey;"}) %>
+          </li>
+          <li>
+            <%= link_to("アカウント削除", "/users/#{@current_user.id}/destroy", {method: :post, :style=>"color: grey;"}) %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

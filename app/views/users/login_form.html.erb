@@ -1,0 +1,15 @@
+<div class="input-form">
+  <%= form_tag("/login") do %>
+    <input type="text" name="name" value="<%= @name %>" placeholder="name">
+    <input type="password" name="password" value="<%= @password %>" placeholder="password"><br>
+    <input type="submit" value="ログイン">
+  <% end %>
+  <% if @error_message %>
+    <%= @error_message %><br>
+  <% else %>
+    <br><br>
+    ※サンプルアカウント<br>
+    name: SampleUser<br>
+    pass: SamplePass
+  <% end %>
+</div>

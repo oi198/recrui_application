@@ -1,0 +1,756 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require_tree .
+ *= require_self
+ */
+
+#black{
+    color: black;
+}
+
+#invisible{
+    display: none;
+}
+
+#invisible2{
+    display: none;
+}
+
+#logo{
+    width: 130px;
+}
+
+#border{
+    border-top: solid 1px rgba(128, 128, 128, 0.3);
+    border-bottom: solid 1px rgba(128, 128, 128, 0.3);
+}
+
+#border-left{
+    border-left: solid 1px grey;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 1px black;
+    margin-bottom: 30px;
+}
+
+header ul{
+    display: flex;
+    margin: 0 100px;
+}
+
+header ul li{
+    display: block;
+    width: 50px;
+    line-height: 50px;
+    margin: 0 5px;
+}
+
+.side-form{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -300px;
+    right: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px grey;
+    background-color: white;
+    transition: all 0.2s;
+}
+
+.side-form ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.side-form ul li{
+    display: block;
+    width: 148px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+main{
+    display: flex;
+    width: 1000px;
+    margin: auto;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border-right: solid 1px grey;
+}
+
+.nav-header{
+    width: 100%;
+    height: 50px;
+    background-color: #fbfbfb;
+    border-bottom: solid 1px grey;
+}
+
+.nav-header ul{
+    display: flex;
+}
+
+.nav-header ul li{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 10px;
+}
+
+.menu-inputs{
+    display: flex;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.nav-main{
+    width: 100%;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.post-block{
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.5);
+}
+
+.current-post-block{
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.5);
+    background-color: rgba(72, 255, 0, 0.7);
+}
+
+.post-block-header{
+    display: flex;
+    width: 100%;
+    height: 80px;
+}
+
+.post-block-header-left{
+    width: 280px;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    color: black;
+}
+
+.post-block-header-right{
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 100%;
+}
+
+.post-block-header-right-top{
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: grey;
+    border-bottom: solid 1px grey;
+}
+
+.post-block-header-right-bottom{
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: grey;
+}
+
+.post-block-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 649px;
+}
+
+.main-container-header{
+    width: 100%;
+    height: 50px;
+    background-color: #fbfbfb;
+    border-bottom: solid 1px grey;
+    text-align: center;
+    line-height: 50px;
+}
+
+.main-container-main{
+    width: 100%;
+    height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.main-container-footer{
+    width: 100%;
+    height: 100px;
+    background-color: grey;
+}
+
+.main-container-footer-content{
+    display: flex;
+    width: 580px;
+    margin: 10px auto;
+}
+
+.main-container-footer-content textarea{
+    width: 500px;
+    height: 80px;
+    resize: none;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.main-container-footer-content input[type="submit"]{
+    display: none;
+}
+
+.main-container-footer-content .submit{
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(0, 100, 255);
+    margin-top: 15px;
+}
+
+.input-form{
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 0 2px grey;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+}
+
+.input-form input[type="text"], input[type="password"]{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+}
+
+.input-form input[type="time"]{
+    width: 75px;
+    height: 30px;
+    margin: 10px;
+}
+
+.input-form textarea{
+    width: 200px;
+    height: 70px;
+    margin: 10px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.input-form input[type="submit"]{
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    background-color: rgb(0, 100, 255);
+}
+
+.profile-form{
+    width: 800px;
+    margin: auto;
+}
+
+.profile-form-header{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    border-bottom: solid 1px grey;
+}
+
+.profile-form-header-left{
+    width: 200px;
+    height: 100%;
+}
+
+.profile-form-header-right{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 100%;
+}
+
+.profile-form-header-right-top{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 1px grey;
+}
+
+.profile-form-header-right-top-left{
+    width: 500px;
+    height: 100%;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+.profile-form-header-right-top-left input[type="text"]{
+    width: 200px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.profile-form-header-right-top-left input[type="submit"]{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(0, 100, 255);
+    color: white;
+}
+
+.profile-form-header-right-top-right{
+    width: 100px;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+}
+
+.profile-form-header-right-center{
+    width: 100%;
+    height: 100px;
+}
+
+.profile-form-header-right-bottom{
+    width: 100%;
+    height: 50px;
+    border-top: solid 1px grey;
+}
+
+.profile-form-header-right-bottom ul{
+    display: flex;
+}
+
+.profile-form-header-right-bottom ul li{
+    display: block;
+    width: 199px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-right: solid 1px grey;
+}
+
+.create-button{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgba(50, 130, 0, 0.5);
+    color: white;
+    margin-top: 50px;
+}
+
+span img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 25px;
+}
+
+.user-icon{
+    width: 30px;
+    height: 30px;
+    border: solid 1px black;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 33px;
+    margin-top: 10px;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .side-form{
+    top: 45px;
+    right: 100px;
+}
+
+.calendar{
+    width: 800px;
+    margin: auto;
+}
+
+.calendar-block{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 10px;
+    word-wrap: break-word;
+}
+
+.calendar-block p{
+    font-size: 10px;
+}
+
+.schedule{
+    width: 800px;
+    margin: auto;
+}
+
+.schedule-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    border-bottom: solid 2px grey;
+}
+
+.schedule-header p{
+    font-size: 50px;
+}
+
+.event-block{
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px grey;
+}
+
+.event-block2{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border-bottom: solid 1px grey;
+}
+
+.event-block-left{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-self: center;
+}
+
+.event-block-left-content{
+    width: 100%;
+    height: 70px;
+    text-align: center;
+}
+
+.event-block-center{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    border-left: solid 1px grey;
+}
+
+.event-block-center-header{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.event-block-center-main{
+    width: 100%;
+    min-height: 40px;
+}
+
+.event-block-center-main-content{
+    margin-left: 10px;
+    word-wrap: break-word;
+}
+
+.event-block-right{
+    align-self: center;
+    width: 10%;
+    height: 100%;
+}
+
+.event-block-right-top{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: grey;
+}
+
+.my-chat{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.others-chat{
+    display: flex;
+    margin: 10px;
+}
+
+.chat-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.chat-icon img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.chat-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header{
+    height: 15px;
+    font-size: 10px;
+}
+
+.chat-form{
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.chat-content{
+    margin: 5px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.chat-footer{
+    height: 15px;
+    font-size: 10px;
+}
+
+.my-chat .chat-icon{
+    margin-left: 10px;
+}
+
+.my-chat .chat-header{
+    text-align: right;
+}
+
+.my-chat .chat-form{
+    background-color: rgb(65, 250, 65);
+}
+
+.my-chat .chat-footer{
+    text-align: left;
+}
+
+.others-chat .chat-icon{
+    margin-right: 10px;
+}
+
+.others-chat .chat-header{
+    text-align: left;
+}
+
+.others-chat .chat-form{
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+.others-chat .chat-footer{
+    text-align: right;
+}
+
+.companies{
+    width: 800px;
+    margin: auto;
+}
+
+.companies-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    border-bottom: solid 2px grey;
+}
+
+.companies-header-right{
+    width: 700px;
+    height: 100%;
+    text-align: center;
+    line-height: 90px;
+    font-size: 20px;
+}
+
+.company-block{
+    display: flex;
+    width: 100%;
+    border-bottom: solid 1px grey;
+}
+
+.company-block-left{
+    display: block;
+    width: 730px;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+}
+
+.company-block-right{
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 90px;
+}
+
+.company-block-right-top{
+    display: block;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-bottom: solid 1px grey;
+    color: grey;
+}
+
+.company-block-right-bottom{
+    display: block;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    color: grey;
+}
+
+.company-block2{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border-bottom: solid 1px grey;
+}
+
+.ess{
+    width: 800px;
+    margin: auto;
+}
+
+.ess-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    border-bottom: solid 2px grey;
+}
+
+.ess-header-right{
+    width: 700px;
+    height: 100%;
+    text-align: center;
+    line-height: 90px;
+    font-size: 20px;
+}
+
+.es-block{
+    display: flex;
+    width: 100%;
+    min-height: 90px;
+    border-bottom: solid 2px grey;
+}
+
+.es-block2{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border-bottom: solid 2px grey;
+}
+
+.es-block-left{
+    display: flex;
+    flex-direction: column;
+    width: 730px;
+}
+
+.es-block-left-header{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-bottom: solid 1px grey;
+}
+
+.es-block-left-main{
+    width: 100%;
+}
+
+.es-block-left-main-content{
+    margin: 10px;
+    word-wrap: break-word;
+}
+
+.es-block-right{
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+}
+
+.es-block-right-top, .es-block-right-bottom{
+    display: block;
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-bottom: solid 1px grey;
+    color: grey;
+}
+
+.error-form{
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin: 300px auto;
+}

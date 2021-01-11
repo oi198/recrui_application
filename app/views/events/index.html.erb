@@ -1,0 +1,19 @@
+<div class="calendar">
+  <%= month_calendar do |date| %>
+    <%= link_to("/events/#{date.year}/#{date.month}/#{date.day}", {:style=>"color: black;"}) do %>
+
+      <div class="calendar-block">
+      
+        <%= date.day %><br><br>
+
+        <% @events = Event.where(year: date.year, month: date.month, day: date.day) %>
+
+        <% @events.each do |event| %>
+          <p><%= event.title %></p><br>
+        <% end %>
+
+      </div>
+
+    <% end %>
+  <% end %>
+</div>

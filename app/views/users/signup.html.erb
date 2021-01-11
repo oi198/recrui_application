@@ -1,0 +1,12 @@
+<div class="input-form">
+  <%= form_tag("/users/create") do %>
+    <input type="text" name="name" value="<%= @name %>" placeholder="name">
+    <input type="password" name="password" value="<%= @password %>" placeholder="password"><br>
+    <input type="submit" value="新規登録">
+  <% end %>
+  <% if @error_message %>
+    <%= @error_message %><br>
+  <% else %>
+    ※6文字以上10文字以内
+  <% end %>
+</div>

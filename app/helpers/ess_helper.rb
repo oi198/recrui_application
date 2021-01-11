@@ -1,0 +1,2 @@
+module EssHelper
+end

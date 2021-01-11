@@ -1,0 +1,50 @@
+<div class="schedule">
+
+    <div class="schedule-header">
+        <div>
+            <%= @year %><br>
+            <p><%= @month %> / <%= @day %></p>
+        </div>
+        <%= link_to("/events/new/#{@year}/#{@month}/#{@day}") do %>
+            <div class="create-button">
+                new
+            </div>
+        <% end %>
+    </div>
+
+    <% if @events != [] %>
+        <% @events.each do |event| %>
+            <div class="event-block">
+                <div class="event-block-left">
+                    <div class="event-block-left-content">
+                        <%= event.start_hour %> 時 <%= event.start_minute %> 分<br>
+                        ⇩ <br>
+                        <%= event.end_hour %> 時 <%= event.end_minute %> 分
+                    </div>
+                </div>
+                <div class="event-block-center">
+                    <div class="event-block-center-header">
+                        <%= event.title %>
+                    </div>
+                    <div class="event-block-center-main">
+                        <% if event.content %>
+                            <div class="event-block-center-main-content">
+                                <%= event.content %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="event-block-right">
+                    <%= link_to("/events/#{event.id}/#{@year}/#{@month}/#{@day}/destroy", {method: :post}) do %>
+                        <div class="event-block-right-top">削除</div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="event-block2">
+            イベントはありません。
+        </div>
+    <% end %>
+    
+</div>

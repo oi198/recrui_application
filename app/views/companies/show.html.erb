@@ -1,0 +1,45 @@
+<div class="ess">
+
+    <div class="ess-header">
+        <div class="ess-header-right">
+            <%= @company.name %>
+        </div>
+        <%= link_to("/ess/#{@company.id}/create", {method: :post}) do %>
+            <div class="create-button">
+                new
+            </div>
+        <% end %>
+    </div>
+
+    <% if @ess != [] %>
+        <% @ess.each do |es| %>
+            <div class="es-block">
+                <div class="es-block-left">
+                    <div class="es-block-left-header">
+                        <%= es.title %>
+                    </div>
+                    <div class="es-block-left-main">
+                        <% if es.content %>
+                            <div class="es-block-left-main-content">
+                                <%= es.content %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="es-block-right">
+                    <%= link_to("/ess/#{@company.id}/#{es.id}/edit") do %>
+                        <div class="es-block-right-top">編集</div>
+                    <% end %>
+                    <%= link_to("/ess/#{@company.id}/#{es.id}/destroy", {method: :post}) do %>
+                        <div class="es-block-right-bottom">削除</div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <div class="es-block2">
+            登録された項目はありません。
+        </div>
+    <% end %>
+    
+</div>

@@ -1,0 +1,57 @@
+<div class="profile-form">
+    <div class="profile-form-header">
+
+        <div class="profile-form-header-left">
+            <%= form_tag("/users/#{@user.id}/img_update", {multipart: true}) do %>
+                <label>
+                    <span>
+                        <% if @user.image.attached? %>
+                            <%= image_tag(@user.image) %>
+                        <% else %>
+                            <img src="<%= asset_path("unknown.jpg") %>">
+                        <% end %>
+                    </span>
+                    <input type="file" name="image" onchange="fileSelected()">
+                    <input type="submit" id="invisible">
+                </label>
+            <% end %>
+        </div>
+
+        <div class="profile-form-header-right">
+
+            <div class="profile-form-header-right-top">
+                <div class="profile-form-header-right-top-left">
+                    <%= @user.name %>
+                </div>
+                <div class="profile-form-header-right-top-right">
+                    <%= link_to("編集", "/users/#{@user.id}/edit", {:style=>"color: grey;"}) %>
+                </div>
+            </div>
+
+            <div class="profile-form-header-right-center"></div>
+
+            <div class="profile-form-header-right-bottom">
+                <ul>
+                    <li id="border-left">
+                        <%= link_to("投稿", "/users/#{@user.id}/posts", {:style=>"color: grey;"}) %>
+                    </li>
+                    <li>
+                        <%= link_to("コメント", "/users/#{@user.id}/chats", {:style=>"color: grey;"}) %>
+                    </li>
+                    <li>
+                        <%= link_to("登録企業", "/users/#{@user.id}/companies", {:style=>"color: grey;"}) %>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    function fileSelected(){
+        document.getElementById("invisible").click();
+    }
+</script>

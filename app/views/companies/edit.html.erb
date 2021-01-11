@@ -1,0 +1,9 @@
+<div class="input-form">
+    <%= form_tag("/companies/#{@company.id}/update") do %>
+        <input type="text" name="name" value="<%= @name %>" placeholder="new_name"><br>
+        <input type="submit" value="保存">
+    <% end %>
+    <% if @error_message %>
+        <%= @error_message %><br>
+    <% end %>
+</div>
