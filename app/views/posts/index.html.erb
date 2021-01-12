@@ -31,11 +31,13 @@
                 <%= @current_post.title %>
               </div>
               <div class="post-block-header-right">
-                <%= link_to("/posts/#{@current_post.id}/edit") do %>
-                  <div class="post-block-header-right-top">編集</div>
-                <% end %>
-                <%= link_to("/posts/#{@current_post.id}/destroy", {method: :post}) do %>
-                  <div class="post-block-header-right-bottom">削除</div>
+                <% if @current_user && @current_user.id == @current_post.user_id %>
+                  <%= link_to("/posts/#{@current_post.id}/edit") do %>
+                    <div class="post-block-header-right-top">編集</div>
+                  <% end %>
+                  <%= link_to("/posts/#{@current_post.id}/destroy", {method: :post}) do %>
+                    <div class="post-block-header-right-bottom">削除</div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
