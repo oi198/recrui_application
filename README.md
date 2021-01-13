@@ -6,5 +6,18 @@ url : https://agile-depths-72631.herokuapp.com <br>
 
 #### 機能
 
-ユーザー登録<br>
++ ユーザー登録<br>
+<br>
+
++ 質問投稿<br>
+<br>
+
++ コメント<br>
+<br>
+
++ エントリーシート保存<br>
+<br>
+
++ スケジュール管理<br>
+<br>
 
