@@ -2,8 +2,12 @@
 
 url : https://agile-depths-72631.herokuapp.com <br>
 
-言語 : html, css , javascript, ruby on rails
-技術 : Amazon S3, active storage, simple-calendar 
+言語 : html, css , javascript, ruby on rails<br>
+技術 : Amazon S3, active storage, simple-calendar <br>
+
+### 背景
+エンジニアとして技術的な成果物を作成するためにアプリ開発を始めました。<br>
+成果物のテーマは私のような就活で苦戦している人の力になれるアプリを作成したいと思い、「就活対策」としました。<br>
 
 ### 機能
 
