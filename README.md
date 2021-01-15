@@ -3,6 +3,7 @@
 url : https://agile-depths-72631.herokuapp.com <br>
 
 言語 : html, css , javascript, ruby on rails
+技術 : Amazon S3, active storage, simple-calendar 
 
 ### 機能
 
